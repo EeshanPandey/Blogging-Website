@@ -4,8 +4,9 @@ var bodyParser = require("body-parser");
 var expressSanitizer = require("express-sanitizer");
 var mongoose  = require("mongoose");
 var methodOverride = require("method-override");
+mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true});
 
-mongoose.connect("mongodb://localhost:27017/restful_blog_app", {useNewUrlParser: true});
+//mongoose.connect("mongodb://localhost:27017/restful_blog_app", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.use(expressSanitizer());
